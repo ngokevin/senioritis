@@ -1,5 +1,82 @@
+$black: rgb(10, 10, 20);
+$dark-gray: rgb(50, 50, 60);
+$light-gray: rgb(230, 230, 230);
+$white: rgb(250, 250, 250);
+
+$dark-blue: #002163;
+$blue: #003399;
+$light-blue: #A0B8E6;
+$teal: #008D83;
+$purple: #301E77;
+
+$red: #FF0700;
+$green: #00C90D;
+
+@mixin box-shadow($shadow) {
+    -moz-box-shadow: $shadow;
+    -webkit-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+
+@mixin default-box-shadow() {
+    @include box-shadow(1px 1px 2px #888888);
+}
+
 body {
+    background-color: $white;
     margin: 0 auto;
     text-align: center;
     width: 960px;
+}
+
+p, h1, h2, h3, h4 {
+    color: $black;
+}
+
+a {
+    color: $dark-gray;
+    font-weight: bold;
+    text-decoration: none;
+    &:hover {
+        color: $teal;
+    }
+}
+
+#header {
+    margin-bottom: 26px;
+}
+
+form {
+    margin-bottom: 26px;
+}
+
+table {
+    width: 100%;
+    tr {
+        height: 36px;
+    }
+    thead {
+        background: $dark-blue;
+        th {
+            color: $white;
+            a {
+                color: $white;
+                &:hover {
+                    color: $teal;
+                }
+            }
+        }
+    }
+    tbody tr {
+        &:hover {
+            background: darken($white, 10%);
+            cursor: pointer;
+        }
+        &:nth-child(even) {
+            background: $light-blue;
+            &:hover {
+                background: darken($light-blue, 10%);
+            }
+        }
+    }
 }

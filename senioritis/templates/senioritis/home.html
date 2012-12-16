@@ -6,16 +6,38 @@
   </head>
 
   <body>
-    <h1>Senioritis</h1>
-    <h2>search for all of those Easy A classes</h1>
+    <div id='header'>
+      <h1>Senioritis</h1>
+      <h2>search for all of those easy A classes</h1>
+    </div>
 
-    <form method="post">
-      <input type="text" name="Courses"></input>
+    <form action="." method="post">
+      {{ csrf() }}
+      <label for="q">Search</label>
+      <input id="q" type="text" name="q"></input>
       <input type="submit"></input>
     </form>
 
     {% if courses %}
       <table>
+        <thead>
+          <tr>
+            <th>Course</th>
+            <th>Title</th>
+            <th>Professor</th>
+            <th>GPA</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for course in courses %}
+            <tr>
+              <td>{{ course.name }}</td>
+              <td>{{ course.title }}</td>
+              <td>{{ course.professor }}</td>
+              <td>{{ course.gpa }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
       </table>
     {% endif %}
   </body>

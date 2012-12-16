@@ -49,3 +49,13 @@ DATABASES = {
 TEMPLATE_DIRS = (
     path('templates'),
 )
+
+TEMPLATE_CONTEXT_PROCESSORS = {
+    'django.core.context_processors.request',
+    'django.core.context_processors.csrf',
+}
+
+MIDDLEWARE_CLASSES = {
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+}
