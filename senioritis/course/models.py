@@ -5,7 +5,7 @@ class Course(models.model):
     id = models.AutoField(primary_key=True)
     department = models.ForeignKey(Department, null=True)
     title = models.CharField()
-    number = models.CharField()
+    name = models.CharField()
     gpa = models.FloatField()
     professor = models.CharField()
 
@@ -16,7 +16,7 @@ class Course(models.model):
 
 class Department(models.model):
     id = models.AutoField(primary_key=True)
-    university = models.ForeignKey(University, null=True)
+    school = models.ForeignKey(School, null=True)
     tag = models.CharField(max_length=5)
     name = models.CharField()
     gpa = models.FloatField()
@@ -25,7 +25,7 @@ class Department(models.model):
         return '%s (%s): %s' % (self.name, self.number, self.gpa)
 
 
-class University(models.model):
+class School(models.model):
     id = models.AutoField(primary_key=True)
-    university_id = models.IntegerField()
+    school_id = models.IntegerField()
     name = models.CharField()
