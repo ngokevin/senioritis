@@ -3,22 +3,28 @@
   <head>
     <title>Senioritis</title>
     {{ css('senioritis') }}
+    {{ js('senioritis') }}
   </head>
 
   <body>
     <div id='header'>
       <h1>Senioritis</h1>
-      <h2>search for all of those easy A classes</h1>
+      <h2>search for all of those easy A classes</h2>
+      <a href="http://github.com/ngokevin/senioritis">github.com/ngokevin/senioritis</a>
     </div>
 
     <form action="." method="post">
       {{ csrf() }}
-      <label for="q">Search</label>
-      <input id="q" type="text" name="q"></input>
-      <input type="submit"></input>
+      <input id="search-bar" type="text" name="q"></input>
+      <a onclick="$(this).closest('form').submit();" class='submit btn'>Submit Laziness</a>
+      <label for="search-bar">
+        Search by department (eg. "mth, anth") or by professor surname (eg. "ratburn").
+      </label>
     </form>
 
     {% if courses %}
+      {% set page_obj = courses %}
+      {% include 'senioritis/includes/pagination.html' %}
       <table>
         <thead>
           <tr>
@@ -39,6 +45,11 @@
           {% endfor %}
         </tbody>
       </table>
+      {% set page_obj = courses %}
+      {% include 'senioritis/includes/pagination.html' %}
     {% endif %}
+
+    <p id="footer">Coming soon. Overachiever. Search for all those brain-stimulating
+courses.</p>
   </body>
 </html>

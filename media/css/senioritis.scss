@@ -37,6 +37,7 @@ a {
     color: $dark-gray;
     font-weight: bold;
     text-decoration: none;
+    transition: all .2s;
     &:hover {
         color: $teal;
     }
@@ -44,27 +45,40 @@ a {
 
 #header {
     margin-bottom: 26px;
+    h2, a {
+        font-style: italic;
+        position: relative;
+    }
+    h2 {
+        bottom: 13px;
+    }
+    a {
+        bottom: 26px;
+    }
 }
 
 form {
-    margin-bottom: 26px;
+    margin: 39px 0;
+    label {
+        display: block;
+        margin-top: 13px;
+        font-style: italic;
+    }
+    #search-bar {
+        width: 50%;
+    }
 }
 
 table {
     width: 100%;
     tr {
         height: 36px;
+        transition: all .2s;
     }
     thead {
-        background: $dark-blue;
+        background: $dark-gray;
         th {
             color: $white;
-            a {
-                color: $white;
-                &:hover {
-                    color: $teal;
-                }
-            }
         }
     }
     tbody tr {
@@ -73,10 +87,100 @@ table {
             cursor: pointer;
         }
         &:nth-child(even) {
-            background: $light-blue;
+            background: $light-gray;
             &:hover {
-                background: darken($light-blue, 10%);
+                background: darken($light-gray, 10%);
             }
         }
+    }
+}
+
+#footer {
+    font-style: italic;
+    margin-top: 52px;
+}
+
+a.btn {
+    background: $dark-gray;
+    border-radius: 5px;
+    bottom: 0;
+    color: $white;
+    font-weight: normal;
+    margin-right: 10px;
+    padding: 5px 10px;
+    position: relative;
+    text-decoration: none;
+    right: 0;
+    transition: .5s .1s;
+    &:hover {
+        @include box-shadow(2px 2px 3px $dark-gray);
+        background: lighten($dark-gray, 5%);
+        bottom: 2px;
+        color: $white;
+        cursor: pointer;
+        right: 2px;
+    }
+    &:active {
+        @include box-shadow(none);
+        background: darken($blue, 10%);
+        bottom: 0;
+        right: 0;
+        transition: .03s 0s;
+    }
+}
+
+/* Pagination */
+.pagination {
+    height: 36px;
+    margin: 26px 0;
+    text-align: center;
+    ul {
+      border-radius: 3px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+    li {
+      display: inline;
+    }
+    a {
+      float: left;
+      padding: 0 14px;
+      line-height: 34px;
+      text-decoration: none;
+      border: 1px solid #ddd;
+      border-left-width: 0;
+      &:hover {
+        background-color: #f5f5f5;
+      }
+    }
+    .active a {
+      background-color: #f5f5f5;
+      color: #999999;
+      cursor: default;
+    }
+    .disabled {
+      span {
+        color: #999999;
+        background-color: transparent;
+        cursor: default;
+      }
+      a {
+        color: #999999;
+        background-color: transparent;
+        cursor: default;
+        &:hover {
+          color: #999999;
+          background-color: transparent;
+          cursor: default;
+        }
+      }
+    }
+    li {
+      &:first-child a {
+        border-left-width: 1px;
+        border-radius: 3px 0 0 3px;
+      }
+      &:last-child a {
+        border-radius: 0 3px 3px 0;
+      }
     }
 }

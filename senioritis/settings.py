@@ -22,6 +22,11 @@ MINIFY_BUNDLES = {
         'senioritis': {
             'css/senioritis.scss',
         }
+    },
+    'js': {
+        'senioritis': {
+            'js/lib/jquery-1.8.3.min.js',
+        }
     }
 }
 
