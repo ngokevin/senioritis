@@ -15,7 +15,12 @@
 
     <form action="." method="post">
       {{ csrf() }}
-      <input id="search-bar" type="text" name="q"></input>
+      <select name="school">
+        {% for school in schools %}
+          <option value="{{ school.school_id }}">{{ school.name }}</option>
+        {% endfor %}
+      </select>
+      <input id="search-bar" type="text" name="q" value="{{ q }}"></input>
       <a onclick="$(this).closest('form').submit();" class='submit btn'>Submit Laziness</a>
       <label for="search-bar">
         Search by department (eg. "mth, anth") or by professor surname (eg. "ratburn").

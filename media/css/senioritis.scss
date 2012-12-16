@@ -64,6 +64,10 @@ form {
         margin-top: 13px;
         font-style: italic;
     }
+    select, option {
+        background: $light-gray;
+        color: $black;
+    }
     #search-bar {
         width: 50%;
     }
