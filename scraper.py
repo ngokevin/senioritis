@@ -68,8 +68,11 @@ def get_course_data(course_url):
     html = requests.get(course_url).text
     doc = pq(html)
 
-    name = doc('.head h2').html().strip()
-    title = doc('.head h3').html().strip()
+    try:
+        name = doc('.head h2').html().strip()
+        title = doc('.head h3').html().strip()
+    except AttributeError:
+        return
     department = Department.objects.get(tag=name.split()[0])
 
     doc('tbody.list').each(lambda e : add_course(e, department, name, title))

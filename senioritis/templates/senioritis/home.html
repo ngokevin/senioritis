@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Senioritis</title>
+    {{ css('senioritis') }}
+  </head>
+
+  <body>
+    <h1>Senioritis</h1>
+    <h2>search for all of those Easy A classes</h1>
+
+    <form method="post">
+      <input type="text" name="Courses"></input>
+      <input type="submit"></input>
+    </form>
+
+    {% if courses %}
+      <table>
+      </table>
+    {% endif %}
+  </body>
+</html>
