@@ -1,31 +1,32 @@
 from django.db import models
 
 
-class Course(models.model):
+class School(models.Model):
     id = models.AutoField(primary_key=True)
-    department = models.ForeignKey(Department, null=True)
-    title = models.CharField()
-    name = models.CharField()
-    gpa = models.FloatField()
-    professor = models.CharField()
-
-    def __repr__(self):
-        return '%s%s %s: %s' % (self.department.tag, self.number,
-                                self.professor, self.gpa)
+    school_id = models.IntegerField()
+    name = models.CharField(max_length=100)
 
 
-class Department(models.model):
+class Department(models.Model):
     id = models.AutoField(primary_key=True)
     school = models.ForeignKey(School, null=True)
     tag = models.CharField(max_length=5)
-    name = models.CharField()
+    name = models.CharField(max_length=100)
     gpa = models.FloatField()
 
     def __repr__(self):
         return '%s (%s): %s' % (self.name, self.number, self.gpa)
 
 
-class School(models.model):
+class Course(models.Model):
     id = models.AutoField(primary_key=True)
-    school_id = models.IntegerField()
-    name = models.CharField()
+    department = models.ForeignKey(Department, null=True)
+    name = models.CharField(max_length=10)
+    title = models.CharField(max_length=100)
+    gpa = models.FloatField()
+    professor = models.CharField(max_length=100)
+
+    def __repr__(self):
+        return '%s%s %s: %s' % (self.department.tag, self.number,
+                                self.professor, self.gpa)
+

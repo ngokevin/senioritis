@@ -1,5 +1,6 @@
 INSTALLED_APPS = (
-    'course'
+    'course',
+    'django_extensions'
 )
 
 DATABASES = {
