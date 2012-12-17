@@ -1,3 +1,5 @@
+import re
+
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
 
@@ -33,6 +35,8 @@ def _or_query(query, text):
     text = text.strip()
     query |= Q(department__tag=text)
 
+    if re.match('\w+\d+', text):
+        query |= Q(name__icontains=re.sub('([a-zA-Z]+)(\d+)', r'\1 \2', text))
     if len(text.split()) == 2:
         # e.g. MTH 202
         query |= Q(name__icontains=text)
