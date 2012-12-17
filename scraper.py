@@ -13,13 +13,13 @@ from senioritis.course.models import Course, Department, School
 def get_courses(school_url):
     """Master function."""
     print 'Fetching departments from %s' % school_url
-    get_department_data(school_url)
+    school_id = get_department_data(school_url)
     for department_url in get_urls(school_url):
 
         print 'Fetching courses from %s' % department_url
         for course_url in get_urls(department_url):
             print 'Fetching course from %s' % course_url
-            get_course_data(course_url)
+            get_course_data(course_url, school_id)
 
 
 def get_urls(url):
@@ -50,6 +50,8 @@ def get_department_data(school_url):
     doc('ul.group li').each(
         lambda e : add_department(e.attr('name'), school_id))
 
+    return school_id
+
 
 def add_department(department, school_id):
     """Helper function for adding Department object."""
@@ -60,7 +62,7 @@ def add_department(department, school_id):
         print 'Added Department %s.' % str(dept)
 
 
-def get_course_data(course_url):
+def get_course_data(course_url, school_id):
     """
     Load content from course_url and store department,
     course title, course name, gpa, and professor into database.
@@ -73,7 +75,8 @@ def get_course_data(course_url):
         title = doc('.head h3').html().strip()
     except AttributeError:
         return
-    department = Department.objects.get(tag=name.split()[0])
+    department = Department.objects.get(tag=name.split()[0],
+                                        school_id=school_id)
 
     doc('tbody.list').each(lambda e : add_course(e, department, name, title))
 
@@ -91,5 +94,4 @@ def add_course(course, department, name, title):
 if __name__ == '__main__':
     # Place the myedu URL for courses-by-department for your desired school.
     get_courses(
-        'https://myedu.com/'
-        'OSU-Oregon-State-University/school/100/course/by-department/')
+        'https://myedu.com/University-of-Oregon/school/240/course/by-department/')

@@ -16,7 +16,10 @@
     <form action="." method="get">
       <select name="school">
         {% for school in schools %}
-          <option value="{{ school.school_id }}">{{ school.name }}</option>
+          <option value="{{ school.school_id }}"{% if school.school_id ==
+school_id %}selected="selected"{% endif %}>
+            {{ school.name }}
+          </option>
         {% endfor %}
       </select>
       <input id="search-bar" type="text" name="q" value="{{ q }}"></input>

@@ -24,7 +24,8 @@ def home(request):
             25)
 
     return jingo.render(request, 'senioritis/home.html',
-                        {'courses': courses, 'q': request.GET.get('q', ''), 'schools': schools})
+                        {'courses': courses, 'q': request.GET.get('q', ''),
+                         'schools': schools, 'school_id': school_id})
 
 
 def _do_sort(request, qs):
