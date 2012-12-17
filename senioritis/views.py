@@ -10,6 +10,7 @@ from course.models import Course, Department, School
 
 
 def home(request):
+    school_id = 100
     schools = School.objects.all()
     courses = _make_paginator(
         request,

@@ -21,7 +21,7 @@ a {
 #header h2 {
   font-style: italic;
   bottom: 13px; }
-#header a {
+#header a.link {
   bottom: 26px; }
 
 form {
