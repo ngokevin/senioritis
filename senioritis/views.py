@@ -28,8 +28,11 @@ def home(request):
 
 
 def _or_query(query, text):
-    query |= (Q(department__tag=text) | Q(name__icontains=text))
-    if len(text) > 1:
+    query |= Q(department__tag=text)
+
+    if len(text.split()) >= 2:
+        query |= Q(name__icontains=text)
+    if len(text) > 2:
         query |= Q(professor__icontains=text)
     return query
 

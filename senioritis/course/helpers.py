@@ -8,7 +8,6 @@ from jingo import register
 @jinja2.contextfunction
 def page_url(context, page_num):
     """Copy current GET params to page param."""
-    print context['request'].GET.items()
     get_params = [(k, v) for k, v in context['request'].GET.items()]
     get_params.append(('page', page_num))
 
