@@ -64,7 +64,7 @@ def _do_sort(request, qs):
 
 def _make_paginator(request, qs, num):
     paginator = Paginator(qs, num)
-    page = request.GET.get('page')
+    page = request.GET.get('page', 1)
     try:
         return paginator.page(page)
     except PageNotAnInteger:
