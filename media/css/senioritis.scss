@@ -84,8 +84,11 @@ table {
     }
     thead {
         background: $dark-gray;
-        th {
+        th a {
             color: $white;
+            &:hover {
+                color: $teal;
+            }
         }
     }
     tbody tr {

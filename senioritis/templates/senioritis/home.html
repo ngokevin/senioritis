@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>Senioritis</title>
-    <link href='http://fonts.googleapis.com/css?family=Short+Stack' rel='stylesheet' type='text/css'>
     {{ css('senioritis') }}
     {{ js('senioritis') }}
   </head>
@@ -35,10 +34,10 @@
       <table>
         <thead>
           <tr>
-            <th>Course</th>
-            <th>Title</th>
-            <th>Professor</th>
-            <th>GPA</th>
+            <th>{{ sort_link('Course', 'name')|safe }}</th>
+            <th>{{ sort_link('Title', 'title')|safe }}</th>
+            <th>{{ sort_link('Professor', 'professor')|safe }}</th>
+            <th>{{ sort_link('GPA', 'gpa')|safe }}</th>
           </tr>
         </thead>
         <tbody>

@@ -45,8 +45,10 @@ table {
     transition: all .2s; }
   table thead {
     background: #32323c; }
-    table thead th {
+    table thead th a {
       color: #fafafa; }
+      table thead th a:hover {
+        color: #008d83; }
   table tbody tr:hover {
     background: #e1e1e1;
     cursor: pointer; }

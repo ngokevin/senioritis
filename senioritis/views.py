@@ -3,6 +3,7 @@ from django.db.models import Q
 
 import jingo
 
+from course.helpers import clean_sort_param
 from course.models import Course, Department, School
 
 
@@ -18,13 +19,24 @@ def home(request):
         q = request.GET.get('q').split(',')
         courses = _make_paginator(
             request,
-            Course.objects.filter(reduce(_or_query, q, Q()))
-                          .filter(department__school__id=school_id)
-                          .order_by('-gpa'),
+            _do_sort(request, Course.objects.filter(reduce(_or_query, q, Q()))
+                              .filter(department__school__id=school_id)),
             25)
 
     return jingo.render(request, 'senioritis/home.html',
                         {'courses': courses, 'q': request.GET.get('q', ''), 'schools': schools})
+
+
+def _do_sort(request, qs):
+    """Returns an order_by string based on request GET parameters"""
+    sort, order = clean_sort_param(request)
+
+    if order == 'asc':
+        order_by = sort
+    else:
+        order_by = '-%s' % sort
+
+    return qs.order_by(order_by)
 
 
 def _or_query(query, text):
