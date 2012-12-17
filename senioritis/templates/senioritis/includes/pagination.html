@@ -13,18 +13,18 @@
   {% endif %}
     </li>
 
-  {% set page_interval = (page_obj.paginator.num_pages / 12)|int %}
+  {% set page_interval = (page_obj.paginator.num_pages / 11)|int %}
   {% for page in range(1, page_obj.paginator.num_pages + 1) %}
     {# Divide range of pages into 10 so it doesn't fill up screen.
        e.g. 100-page-paginator would show 0...10...20...30 #}
-    {% if page_obj.paginator.num_pages < 12 or page % page_interval == 0 %}
+    {% if page_obj.paginator.num_pages < 11 or page % page_interval == 0 %}
       {% if page_obj.number == page %}
         <li class="active">
           <a href="#">{{ page }}</a>
         </li>
       {% else %}
         <li>
-          <a href="?page={{ page }}">{{ page }}</a>
+          <a href="{{ page_url(page) }}">{{ page }}</a>
         </li>
       {% endif %}
     {% endif %}
@@ -32,13 +32,13 @@
 
   {% if page_obj.has_next() %}
     <li>
-      <a href="?page={{ page_obj.next_page_number() }}">Next</a></li>
+      <a href="{{ page_url(page_obj.next_page_number()) }}">Next</a></li>
   {% else %}
     <li class="disabled">
       <a href="#">Next</a></li>
   {% endif %}
     </li>
-    <li><a href="?page={{ page_obj.paginator.num_pages }}">Last</a></li>
+    <li><a href="{{ page_url(page_obj.paginator.num_pages) }}">Last</a></li>
   </ul>
 </div>
 

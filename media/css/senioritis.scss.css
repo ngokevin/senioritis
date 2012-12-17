@@ -1,5 +1,6 @@
 body {
   background-color: #fafafa;
+  font-family: 'Georgia';
   margin: 0 auto;
   text-align: center;
   width: 960px; }
@@ -15,15 +16,15 @@ a {
   a:hover {
     color: #008d83; }
 
-#header {
-  margin-bottom: 26px; }
-  #header h2, #header a {
-    font-style: italic;
-    position: relative; }
-  #header h2 {
-    bottom: 13px; }
-  #header a {
-    bottom: 26px; }
+#header h1, #header h2 {
+  font-family: 'Short Stack', cursive; }
+#header h2, #header a {
+  position: relative; }
+#header h2 {
+  font-style: italic;
+  bottom: 13px; }
+#header a {
+  bottom: 26px; }
 
 form {
   margin: 39px 0; }

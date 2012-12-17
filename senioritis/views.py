@@ -7,16 +7,15 @@ from course.models import Course, Department, School
 
 
 def home(request):
-    q = ''
     schools = School.objects.all()
     courses = _make_paginator(
         request,
         Course.objects.filter(department__school__id=100).order_by('-gpa'),
         25)
 
-    if request.POST and request.POST.get('q'):
-        school_id = int(request.POST.get('school', 100))
-        q = request.POST.get('q').split()
+    if request.GET.get('q'):
+        school_id = int(request.GET.get('school', 100))
+        q = request.GET.get('q').split(',')
         courses = _make_paginator(
             request,
             Course.objects.filter(reduce(_or_query, q, Q()))
@@ -25,11 +24,11 @@ def home(request):
             25)
 
     return jingo.render(request, 'senioritis/home.html',
-                        {'courses': courses, 'q': request.POST.get('q'), 'schools': schools})
+                        {'courses': courses, 'q': request.GET.get('q', ''), 'schools': schools})
 
 
 def _or_query(query, text):
-    query |= Q(department__tag=text)
+    query |= (Q(department__tag=text) | Q(name__icontains=text))
     if len(text) > 1:
         query |= Q(professor__icontains=text)
     return query

@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Senioritis</title>
+    <link href='http://fonts.googleapis.com/css?family=Short+Stack' rel='stylesheet' type='text/css'>
     {{ css('senioritis') }}
     {{ js('senioritis') }}
   </head>
@@ -13,7 +14,7 @@
       <a href="http://github.com/ngokevin/senioritis">github.com/ngokevin/senioritis</a>
     </div>
 
-    <form action="." method="post">
+    <form action="." method="get">
       {{ csrf() }}
       <select name="school">
         {% for school in schools %}
@@ -23,7 +24,8 @@
       <input id="search-bar" type="text" name="q" value="{{ q }}"></input>
       <a onclick="$(this).closest('form').submit();" class='submit btn'>Submit Laziness</a>
       <label for="search-bar">
-        Search by department (eg. "mth, anth") or by professor surname (eg. "ratburn").
+        Search by department (eg. "mth, anth"), course (eg. "ENG 101, BIO
+106"), professor surname (eg. "ratburn").
       </label>
     </form>
 

@@ -24,6 +24,7 @@ $green: #00C90D;
 
 body {
     background-color: $white;
+    font-family: 'Georgia';
     margin: 0 auto;
     text-align: center;
     width: 960px;
@@ -44,12 +45,14 @@ a {
 }
 
 #header {
-    margin-bottom: 26px;
+    h1, h2 {
+        font-family: 'Short Stack', cursive;
+    }
     h2, a {
-        font-style: italic;
         position: relative;
     }
     h2 {
+        font-style: italic;
         bottom: 13px;
     }
     a {
