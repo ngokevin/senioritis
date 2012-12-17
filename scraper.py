@@ -89,10 +89,7 @@ def add_course(course, department, name, title):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--school', '-u', type=int)
-    args = parser.parse_args()
-
+    # Place the myedu URL for courses-by-department for your desired school.
     get_courses(
         'https://myedu.com/'
         'OSU-Oregon-State-University/school/100/course/by-department/')

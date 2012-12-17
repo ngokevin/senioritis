@@ -40,6 +40,7 @@ def _do_sort(request, qs):
 
 
 def _or_query(query, text):
+    text = text.strip()
     query |= Q(department__tag=text)
 
     if len(text.split()) >= 2:

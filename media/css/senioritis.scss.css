@@ -16,8 +16,6 @@ a {
   a:hover {
     color: #008d83; }
 
-#header h1, #header h2 {
-  font-family: 'Short Stack', cursive; }
 #header h2, #header a {
   position: relative; }
 #header h2 {
