@@ -15,7 +15,7 @@
     </div>
 
     <form action="." method="get">
-      <select name="school">
+      <select onchange="this.form.submit()" name="school">
         {% for school in schools %}
           <option value="{{ school.school_id }}"{% if school.school_id ==
 school_id %}selected="selected"{% endif %}>
