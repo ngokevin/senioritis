@@ -15,7 +15,7 @@ class School(models.Model):
 class Department(models.Model):
     id = models.AutoField(primary_key=True)
     school = models.ForeignKey(School, null=True)
-    tag = models.CharField(max_length=5, null=True)
+    tag = models.CharField(max_length=10, null=True)
     name = models.CharField(max_length=100, null=True)
     gpa = models.FloatField(null=True)
 

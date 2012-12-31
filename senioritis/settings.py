@@ -1,7 +1,7 @@
 import os
 import site
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = True
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -9,10 +9,10 @@ path = lambda *a: os.path.join(ROOT, *a)
 site.addsitedir(path('.'))
 
 SASS_PREPROCESS = True
-SASS_BIN = '/usr/local/bin/sass'
+SASS_BIN = '/usr/bin/sass'
 JINGO_MINIFY_USE_STATIC = False
 
-MEDIA_ROOT = os.path.abspath('media')
+MEDIA_ROOT = '/home/ngoke/Code/senioritis/media/'
 MEDIA_URL = '/media/'
 
 ROOT_URLCONF = 'senioritis.urls'
@@ -42,7 +42,7 @@ DATABASES = {
         'HOST': 'localhost',
         'NAME': 'senioritis',
         'USER': 'root',
-        'PASSWORD': 'yoursql',
+        'PASSWORD': 'amazonriver',
         'ENGINE': 'django.db.backends.mysql',
         'OPTIONS': {
             'init_command': 'SET storage_engine=InnoDB;'
