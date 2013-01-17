@@ -3,6 +3,7 @@
   <head>
     <title>Senioritis</title>
     <link rel="icon" type="image/x-icon" href="/media/img/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Croissant+One' rel='stylesheet' type='text/css'>
     {{ css('senioritis') }}
     {{ js('senioritis') }}
   </head>
@@ -10,8 +11,8 @@
   <body>
     <div id='header'>
       <h1><a href="/">Senioritis</a></h1>
-      <h2>search for all of those easy A classes</h2>
-      <a class="link" href="http://github.com/ngokevin/senioritis">github.com/ngokevin/senioritis</a>
+      <h2>easy up your schedule</h2>
+      <a class="link" href="http://github.com/ngokevin/senioritis">Source Code</a>
     </div>
 
     <form action="." method="get">
@@ -58,8 +59,7 @@ school_id %}selected="selected"{% endif %}>
       {% include 'senioritis/includes/pagination.html' %}
     {% endif %}
 
-    <p id="footer">Coming soon. Overachiever. Search for all those brain-stimulating
-courses.</p>
+    <p id="footer">By <a href="http://ngokevin.com">ngokevin</a></p>
 
   <script type="text/javascript">
 
