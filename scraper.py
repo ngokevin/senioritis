@@ -47,8 +47,7 @@ def get_department_data(school_url):
     if created:
         print 'Added School %s.' % str(school)
 
-    doc('ul.group li').each(
-        lambda e : add_department(e.attr('name'), school_id))
+    doc('ul.group li').each(lambda e : add_department(e.attr('name'), school_id))
 
     return school_id
 
@@ -94,4 +93,4 @@ def add_course(course, department, name, title):
 if __name__ == '__main__':
     # Place the myedu URL for courses-by-department for your desired school.
     get_courses(
-        'https://myedu.com/University-of-Oregon/school/240/course/by-department/')
+        'https://myedu.com/University-of-Washington-Seattle/school/119/course/by-department/')

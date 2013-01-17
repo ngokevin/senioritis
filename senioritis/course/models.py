@@ -15,7 +15,7 @@ class School(models.Model):
 class Department(models.Model):
     id = models.AutoField(primary_key=True)
     school = models.ForeignKey(School, null=True)
-    tag = models.CharField(max_length=5, null=True)
+    tag = models.CharField(max_length=10, null=True)
     name = models.CharField(max_length=100, null=True)
     gpa = models.FloatField(null=True)
 
@@ -30,7 +30,7 @@ class Course(models.Model):
     id = models.AutoField(primary_key=True)
     department = models.ForeignKey(Department, null=True)
     name = models.CharField(max_length=10, null=True)
-    title = models.CharField(max_length=100, null=True)
+    title = models.CharField(max_length=400, null=True)
     gpa = models.FloatField(null=True)
     professor = models.CharField(max_length=100, null=True)
 

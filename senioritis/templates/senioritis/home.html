@@ -16,7 +16,7 @@
     </div>
 
     <form action="." method="get">
-      <select name="school">
+      <select onchange="this.form.submit()" name="school">
         {% for school in schools %}
           <option value="{{ school.school_id }}"{% if school.school_id ==
 school_id %}selected="selected"{% endif %}>
@@ -27,8 +27,8 @@ school_id %}selected="selected"{% endif %}>
       <input id="search-bar" type="text" name="q" value="{{ q }}"></input>
       <a onclick="$(this).closest('form').submit();" class='submit btn'>Submit Laziness</a>
       <label for="search-bar">
-        Search by department (eg. "mth, anth"), course (eg. "eng101, BIO
-1, bio2"), professor surname (eg. "ratburn").
+        Search by department (eg. "mth, ANTH"), course (eg. "eng101, BIO
+1, intro to learning"), professor surname (eg. "ratburn").
       </label>
     </form>
 

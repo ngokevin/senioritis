@@ -10,15 +10,14 @@ from course.models import Course, Department, School
 
 
 def home(request):
-    school_id = 100
     schools = School.objects.all()
+    school_id = int(request.GET.get('school', 100))
     courses = _make_paginator(
         request,
-        Course.objects.filter(department__school__id=100).order_by('-gpa'),
+        Course.objects.filter(department__school__id=school_id).order_by('-gpa'),
         25)
 
     if request.GET.get('q'):
-        school_id = int(request.GET.get('school', 100))
         q = request.GET.get('q').split(',')
         courses = _make_paginator(
             request,
