@@ -57,9 +57,13 @@ school_id %}selected="selected"{% endif %}>
       </table>
       {% set page_obj = courses %}
       {% include 'senioritis/includes/pagination.html' %}
+    {% else %}
+      <p class="no-results">
+        No results found. Try <a href="http://ratemyprofessor.com">ratemyprofessor</a>.
+      </p>
     {% endif %}
 
-    <p id="footer">By <a href="http://ngokevin.com">ngokevin</a></p>
+    <p id="footer">by <a href="http://ngokevin.com">ngokevin</a></p>
 
   <script type="text/javascript">
 

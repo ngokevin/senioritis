@@ -35,7 +35,6 @@ form {
   form label {
     display: block;
     margin-top: 13px;
-    opacity: .75;
     font-style: italic; }
   form select, form option {
     background: #e6e6e6;
