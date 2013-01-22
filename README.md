@@ -1,8 +1,7 @@
 senioritis
 ==========
 
-Scrapes myedu to find out the easiest classes of a university by average GPA by
-professor.
+Find out the easiest classes of a university by average GPA by professor.
 
 Motivated by a college senior who just wants his piece of paper and go work.
 
