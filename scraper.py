@@ -47,7 +47,7 @@ def get_department_data(school_url):
     if created:
         print 'Added School %s.' % str(school)
 
-    doc('ul.group li').each(lambda e : add_department(e.attr('name'), school_id))
+    doc('ul.group li').each(lambda i, e : add_department(pq(e).attr('name'), school_id))
 
     return school_id
 
@@ -77,7 +77,7 @@ def get_course_data(course_url, school_id):
     department = Department.objects.get(tag=name.split()[0],
                                         school_id=school_id)
 
-    doc('tbody.list').each(lambda e : add_course(e, department, name, title))
+    doc('tbody.list').each(lambda i, e : add_course(pq(e), department, name, title))
 
 
 def add_course(course, department, name, title):
@@ -93,4 +93,4 @@ def add_course(course, department, name, title):
 if __name__ == '__main__':
     # Place the myedu URL for courses-by-department for your desired school.
     get_courses(
-        'https://myedu.com/University-of-Washington-Seattle/school/119/course/by-department/')
+        'https://www.myedu.com/Oregon-State-University/school/100/course/by-department/')

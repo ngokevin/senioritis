@@ -1,7 +1,7 @@
 import os
 import site
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = True
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -9,7 +9,7 @@ path = lambda *a: os.path.join(ROOT, *a)
 site.addsitedir(path('.'))
 
 SASS_PREPROCESS = True
-SASS_BIN = '/usr/bin/sass'
+SASS_BIN = '/usr/local/bin/sass'
 JINGO_MINIFY_USE_STATIC = False
 
 MEDIA_ROOT = '/home/ngoke/Code/senioritis/media/'
@@ -20,7 +20,7 @@ ROOT_URLCONF = 'senioritis.urls'
 MINIFY_BUNDLES = {
     'css': {
         'senioritis': {
-            'css/senioritis.scss',
+            'css/senioritis.css',
         }
     },
     'js': {
@@ -64,3 +64,5 @@ MIDDLEWARE_CLASSES = {
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
 }
+
+SECRET_KEY = 'abc'
