@@ -42,12 +42,12 @@ def get_department_data(school_url):
     # Create school if it doesn't exist.
     school_id = int(doc('.head').attr('data-school-id'))
     school_name = doc('.head h1').text().strip()
-    school, created = School.objects.get_or_create(school_id=school_id,
+    school, created = School.objects.get_or_create(id=school_id, school_id=school_id,
                                                    name=school_name)
     if created:
         print 'Added School %s.' % str(school)
 
-    doc('ul.group li').each(lambda i, e : add_department(pq(e).attr('name'), school_id))
+    doc('ul.group li').each(lambda i, e : add_department(pq(e).attr('name'), school.id))
 
     return school_id
 

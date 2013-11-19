@@ -1,6 +1,8 @@
-django
+django==1.5.2
 django-extensions
 pyquery
 requests
+mysql-python
+jingo_minify
 
 -e git+https://github.com/jbalogh/jingo.git@b4ecca1066bcd1eac87358b4c82902442d4eedc4#egg=jingo

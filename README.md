@@ -11,6 +11,5 @@ Installation
 ```
 sudo pip install -r requirements.txt
 rubygems install sass
-git clone git@github.com:ngokevin/jingo-minify && python jingo-minify/setup.py install
 sed -i 's/SASS_BIN = '.*'/SASS_BIN = $(watch sass)/' senioritis/settings/settings.py
 ```
